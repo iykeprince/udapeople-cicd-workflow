@@ -290,13 +290,7 @@ jobs:
             echo "${API_URL}"
             echo API_URL="http://${BACKEND_IP}:3030" >> frontend/.env
             cat frontend/.env
-      - run:
-          name: Create the s3 bucket
-          command: |
-            aws s3api create-bucket \
-            --bucket my-bucket \
-            --region us-east-1 \ 
-            --acl public-read-write
+
       - run:
           name: Deploy frontend objects
           command: |
