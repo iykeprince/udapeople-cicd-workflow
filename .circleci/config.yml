@@ -241,7 +241,7 @@ jobs:
             ~/project/backend/migrations_dump.txt
 
             then
-              curl https://kvdb.io/NFVsfmLrshYi6hdTm1Npew/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              curl https://kvdb.io/8gKNenR3szixv5wuQXtR95/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
       - destroy-environment
       - revert-migrations
