@@ -198,7 +198,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "12:04:0b:11:fd:72:0e:75:a6:26:98:da:35:cd:86:b4"
+            - "49:96:01:11:4e:df:ff:9c:9c:f3:24:c3:4a:da:3f:3d"
       - attach_workspace:
           at: ~/
       - run:
@@ -283,9 +283,9 @@ jobs:
           name: Get backend url
           command: |
             export BACKEND_IP=$(aws ec2 describe-instances \
-            --query 'Reservations[*].Instances[*].PublicIpAddress' \
-            --filters "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
-            --output text)
+              --query 'Reservations[*].Instances[*].PublicIpAddress' \
+              --filters "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
+              --output text)
             export API_URL="http://${BACKEND_IP}:3030"
             echo "${API_URL}"
             echo API_URL="http://${BACKEND_IP}:3030" >> frontend/.env
@@ -325,7 +325,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "12:04:0b:11:fd:72:0e:75:a6:26:98:da:35:cd:86:b4"
+            - "49:96:01:11:4e:df:ff:9c:9c:f3:24:c3:4a:da:3f:3d"
       - attach_workspace:
           at: ~/
       - restore_cache:
