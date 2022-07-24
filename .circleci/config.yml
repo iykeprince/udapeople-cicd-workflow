@@ -91,7 +91,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key:
+          keys:
             - frontend-build
       - run:
           name: Run frontend Unit Test
@@ -106,7 +106,7 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key:
+          keys:
             - backend-build
       - run:
           name: Run backend Unit Test
