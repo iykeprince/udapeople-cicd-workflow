@@ -203,7 +203,7 @@ jobs:
           name: Install dependencies
           command: |
             apk add --update ansible tar gzip
-            pip install awscli
+            python3 -m pip install awscli
             cat .circleci/ansible/inventory.txt
       - run:
           name: Configure server
