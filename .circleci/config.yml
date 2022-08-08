@@ -16,13 +16,11 @@ commands:
           name: Destroy environments
           when: on_fail
           command: >
-            aws cloudformation delete-stack --stack-name
-            udapeople-backend-stack-<<parameters.WorkflowID>> 
+            aws cloudformation delete-stack --stack-name udapeople-backend-<<parameters.WorkflowID>> 
 
             aws s3 rm s3://udapeople-<<parameters.WorkflowID>> --recursive 
 
-            aws cloudformation delete-stack --stack-name
-            udapeople-frontend-stack-<<parameters.WorkflowID>>
+            aws cloudformation delete-stack --stack-name udapeople-frontend-<<parameters.WorkflowID>>
 
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
@@ -184,16 +182,16 @@ jobs:
   configure-infrastructure:
     docker:
       - image: "python:3.7-alpine3.11"
-        environment:
-          TYPEORM_MIGRATIONS: $TYPEORM_MIGRATIONS
-          TYPEORM_MIGRATIONS_DIR: $TYPEORM_MIGRATIONS_DIR
-          TYPEORM_CONNECTION: $TYPEORM_CONNECTION
-          TYPEORM_HOST: $TYPEORM_HOST
-          TYPEORM_USERNAME: $TYPEORM_USERNAME
-          TYPEORM_PASSWORD: $TYPEORM_PASSWORD
-          TYPEORM_DATABASE: $TYPEORM_DATABASE
-          TYPEORM_PORT: $TYPEORM_PORT
-          TYPEORM_ENTITIES: $TYPEORM_ENTITIES
+        # environment:
+        #   TYPEORM_MIGRATIONS: $TYPEORM_MIGRATIONS
+        #   TYPEORM_MIGRATIONS_DIR: $TYPEORM_MIGRATIONS_DIR
+        #   TYPEORM_CONNECTION: $TYPEORM_CONNECTION
+        #   TYPEORM_HOST: $TYPEORM_HOST
+        #   TYPEORM_USERNAME: $TYPEORM_USERNAME
+        #   TYPEORM_PASSWORD: $TYPEORM_PASSWORD
+        #   TYPEORM_DATABASE: $TYPEORM_DATABASE
+        #   TYPEORM_PORT: $TYPEORM_PORT
+        #   TYPEORM_ENTITIES: $TYPEORM_ENTITIES
     steps:
       - checkout
       - add_ssh_keys:
