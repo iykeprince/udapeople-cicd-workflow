@@ -279,7 +279,7 @@ jobs:
             ~/project/backend/migrations_dump.txt
 
             then
-              curl https://kvdb.io/8gKNenR3szixv5wuQXtR95/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+              curl https://kvdb.io/Y1Tz2PWVvFVBqEm95X8P3a/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
       - destroy-environment
       - revert-migrations
@@ -544,10 +544,10 @@ workflows:
       #   branches:
       #     only:
       #       - test-feature-branch
-      - configure-infrastructure:
-          requires:
-            - deploy-infrastructure
-      # - run-migrations:
+      # - configure-infrastructure:
+      #     requires:
+      #       - deploy-infrastructure
+      - run-migrations:
       #     requires:
       #       - configure-infrastructure
       # - deploy-frontend:
